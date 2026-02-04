@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Navigator | 10-Feature Intelligence Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --card: #111827;
+            --accent: #38bdf8;
+            --purple: #818cf8;
+            --text: #f3f4f6;
+            --dim: #9ca3af;
+            --danger: #ef4444;
+            --success: #22c55e;
+            --warning: #f59e0b;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #1f2937;
+            margin-bottom: 30px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+        }
+
+        /* Sidebar Inputs */
+        .input-panel {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            height: fit-content;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 0.85rem;
+            color: var(--dim);
+            font-weight: 600;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 10px;
+            background: #030712;
+            border: 1px solid #374151;
+            color: white;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        /* Output Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .metric {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #1f2937;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .metric:hover {
+            border-color: var(--accent);
+        }
+
+        .val {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .lab {
+            font-size: 0.7rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* AI Explanation Console */
+        .console {
+            grid-column: 1 / -1;
+            background: #000;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin-top: 20px;
+        }
+
+        .console h4 {
+            margin: 0 0 10px 0;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .console p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d1d5db;
+        }
+
+        /* Status Colors */
+        .high {
+            color: var(--success);
+        }
+
+        .med {
+            color: var(--warning);
+        }
+
+        .low {
+            color: var(--danger);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🧭 AI <span class="gradient-text">CAREER NAVIGATOR</span></h1>
+            <p>Full-Suite Intelligence Dashboard v1.0</p>
+        </header>
+
+        <div class="main-layout">
+            <aside class="input-panel">
+                <h3>User Profile</h3>
+
+                <label>Native Language</label>
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+
+                <label>Current Skills (0-100%)</label>
+                <input type="number" id="current_skills" value="25" max="100">
+
+                <label>Target Role Salary ($)</label>
+                <input type="number" id="target_salary" value="85000">
+
+                <label>Daily Study Hours</label>
+                <input type="number" id="study_hours" value="4">
+
+                <label>Learning Speed Preference</label>
+                <select id="speed">
+                    <option value="1">Standard (Steady)</option>
+                    <option value="1.5">Accelerated (Fast)</option>
+                    <option value="0.7">Balanced (Slow & Deep)</option>
+                </select>
+
+                <button onclick="calculateAI()">RUN NEURAL ANALYSIS</button>
+            </aside>
+
+            <main>
+                <div class="dashboard">
+                    <div class="metric">
+                        <span class="lab">Feasibility Score</span>
+                        <span id="res_feasibility" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">Salary vs Effort</span>
+                        <span id="res_roi" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">Skill Gap</span>
+                        <span id="res_gap" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">Burnout Risk</span>
+                        <span id="res_burnout" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">Dropout Risk</span>
+                        <span id="res_dropout" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">AI Confidence</span>
+                        <span id="res_conf" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">Switch Strategy</span>
+                        <span id="res_switch" class="val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="lab">Learning Adaptation</span>
+                        <span id="res_adapt" class="val">--</span>
+                    </div>
+                </div>
+
+                <div class="console">
+                    <h4>✨ Native Language Explanation (XAI)</h4>
+                    <p id="xai_output">Input your data and run the analysis to receive personalized guidance in your
+                        native language.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+    async function calculateAI() {
+        // 1. Capture input values from the UI
+        const skills = document.getElementById('current_skills').value;
+        const hours = document.getElementById('study_hours').value;
+        const salary = document.getElementById('target_salary').value;
+        const lang = document.getElementById('language').value;
+        
+        // 2. Map the dropdown text to match your CSV categories (Steady, Turbo, or Deep)
+        const speedText = document.getElementById('speed').selectedOptions[0].text;
+        let speed = "Steady"; // Default
+        if (speedText.includes("Fast")) speed = "Turbo";
+        if (speedText.includes("Slow")) speed = "Deep";
+
+        try {
+            // 3. Single Fetch call to your Python FastAPI server
+            const response = await fetch(`http://localhost:8000/predict?skills=${skills}&hours=${hours}&salary=${salary}&lang=${lang}&speed=${speed}`);
+            
+            if (!response.ok) {
+                throw new Error('Server response was not ok');
+            }
+            
+            const data = await response.json();
+
+            // 4. Update the Dashboard metrics with data from brain.py
+            document.getElementById('res_feasibility').innerText = data.feasibility + "%";
+            document.getElementById('res_roi').innerText = data.roi;
+            document.getElementById('res_gap').innerText = (100 - skills) + "%";
+            document.getElementById('res_burnout').innerText = data.burnout;
+            document.getElementById('res_dropout').innerText = data.dropout;
+            document.getElementById('res_conf').innerText = data.confidence + "%";
+            document.getElementById('res_switch').innerText = data.status;
+            document.getElementById('res_adapt').innerText = data.adaptation;
+
+            // 5. Update Native Language Explanation (XAI) console
+            document.getElementById('xai_output').innerText = data.explanation;
+
+        } catch (error) {
+            console.error("Connection Error:", error);
+            alert("Error: Make sure your Python server (brain.py) is running on port 8000!");
+        }
+    }
+</script>
+
+</body>
+
+</html>
