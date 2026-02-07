@@ -212,6 +212,21 @@
                     <option value="0.7">Balanced (Slow & Deep)</option>
                 </select>
 
+                <label>State</label>
+                <select id="state">
+                    <option>Kerala</option>
+                    <option>Tamil Nadu</option>
+                    <option>Karnataka</option>
+                </select>
+
+                <label>Location Type</label>
+                <select id="location_type">
+                    <option value="Urban">Urban</option>
+                    <option value="Semi-Urban">Semi-Urban</option>
+                    <option value="Rural">Rural</option>
+                </select>
+
+
                 <button onclick="calculateAI()">RUN NEURAL ANALYSIS</button>
             </aside>
 
@@ -249,6 +264,16 @@
                         <span class="lab">Learning Adaptation</span>
                         <span id="res_adapt" class="val">--</span>
                     </div>
+                    <div class="metric">
+                        <span class="lab">Location Score</span>
+                        <span id="res_location_score" class="val">--</span>
+                    </div>
+
+                    <div class="metric">
+                        <span class="lab">Relocation Risk</span>
+                        <span id="res_relocation" class="val">--</span>
+                    </div>
+
                 </div>
 
                 <div class="console">
@@ -267,6 +292,9 @@
             const hours = document.getElementById('study_hours').value;
             const salary = document.getElementById('target_salary').value;
             const lang = document.getElementById('language').value;
+            const state = document.getElementById('state').value;
+            const locationType = document.getElementById('location_type').value;
+
 
             // 2. Map the dropdown text to match your CSV categories (Steady, Turbo, or Deep)
             const speedText = document.getElementById('speed').selectedOptions[0].text;
@@ -276,8 +304,11 @@
 
             try {
                 // 3. Single Fetch call to your Python FastAPI server
-                const response = await fetch(`https://ai-career-navigator-1uhe.onrender.com/predict?skills=${skills}&hours=${hours}&salary=${salary}&lang=${lang}&speed=${speed}`)
-                    ;
+                const response = await fetch(
+                    `http://127.0.0.1:8000/predict
+?skills=${skills}&hours=${hours}&salary=${salary}&lang=${lang}&speed=${speed}&state=${state}&location_type=${locationType}`
+                );
+
 
                 if (!response.ok) {
                     throw new Error('Server response was not ok');
@@ -294,6 +325,9 @@
                 document.getElementById('res_conf').innerText = data.confidence + "%";
                 document.getElementById('res_switch').innerText = data.status;
                 document.getElementById('res_adapt').innerText = data.adaptation;
+                document.getElementById('res_location_score').innerText = data.location_score + "%";
+                document.getElementById('res_relocation').innerText = data.relocation_risk;
+
 
                 // 5. Update Native Language Explanation (XAI) console
                 document.getElementById('xai_output').innerText = data.explanation;
