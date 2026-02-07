@@ -76,4 +76,4 @@ def predict_outcome(skills: int, hours: int, salary: int, lang: str, speed: str)
 
 if __name__ == "__main__":
     # CHANGED TO PORT 8000 TO MATCH YOUR HTML
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
