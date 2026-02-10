@@ -305,9 +305,9 @@
             try {
                 // 3. Single Fetch call to your Python FastAPI server
                 const response = await fetch(
-                    `http://127.0.0.1:8000/predict
-?skills=${skills}&hours=${hours}&salary=${salary}&lang=${lang}&speed=${speed}&state=${state}&location_type=${locationType}`
+                    `https://ai-career-navigator-1uhe.onrender.com/predict?skills=${skills}&hours=${hours}&salary=${salary}&lang=${lang}&speed=${speed}&state=${state}&location_type=${locationType}`
                 );
+
 
 
                 if (!response.ok) {
