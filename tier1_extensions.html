@@ -29,8 +29,15 @@
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -104,7 +111,10 @@
             border-radius: 8px;
         }
 
-        .back-link:hover { color: #ACBFA4; background: rgba(172, 191, 164, 0.2); }
+        .back-link:hover {
+            color: #ACBFA4;
+            background: rgba(172, 191, 164, 0.2);
+        }
 
         .top-bar h1 {
             font-family: 'Fraunces', serif;
@@ -131,7 +141,9 @@
         }
 
         /* ── Results Area ── */
-        .results-area { min-width: 0; }
+        .results-area {
+            min-width: 0;
+        }
 
         .section-title {
             font-size: 0.72rem;
@@ -192,12 +204,35 @@
             flex-shrink: 0;
         }
 
-        .card-icon.cyan { background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.2); }
-        .card-icon.orange { background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.2); }
-        .card-icon.purple { background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); }
-        .card-icon.green { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); }
-        .card-icon.yellow { background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.2); }
-        .card-icon.pink { background: rgba(244, 114, 182, 0.1); border: 1px solid rgba(244, 114, 182, 0.2); }
+        .card-icon.cyan {
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .card-icon.orange {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .card-icon.purple {
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+        }
+
+        .card-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .card-icon.yellow {
+            background: rgba(250, 204, 21, 0.1);
+            border: 1px solid rgba(250, 204, 21, 0.2);
+        }
+
+        .card-icon.pink {
+            background: rgba(244, 114, 182, 0.1);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
 
         .val {
             display: block;
@@ -207,9 +242,17 @@
             font-family: 'Fraunces', serif;
         }
 
-        .val.positive { color: #34d399; }
-        .val.warning { color: #fbbf24; }
-        .val.danger { color: #f87171; }
+        .val.positive {
+            color: #34d399;
+        }
+
+        .val.warning {
+            color: #fbbf24;
+        }
+
+        .val.danger {
+            color: #f87171;
+        }
 
         .lab {
             font-size: 0.68rem;
@@ -243,8 +286,13 @@
             font-size: 0.88rem;
         }
 
-        ul li { margin-bottom: 4px; }
-        ul li::marker { color: var(--dim); }
+        ul li {
+            margin-bottom: 4px;
+        }
+
+        ul li::marker {
+            color: var(--dim);
+        }
 
         /* ── Voice Controls ── */
         .voice-controls {
@@ -273,18 +321,38 @@
 
         /* ── Animations ── */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .animate { animation: fadeInUp 0.5s ease both; }
-        .animate-delay-1 { animation-delay: 0.1s; }
-        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate {
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.2s;
+        }
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            .container { padding: 0 16px; }
-            .top-bar-inner { padding: 0 16px; }
+            .container {
+                padding: 0 16px;
+            }
+
+            .top-bar-inner {
+                padding: 0 16px;
+            }
 
             .tier-grid {
                 grid-template-columns: 1fr;
@@ -294,7 +362,9 @@
                 flex-direction: column;
             }
 
-            .top-bar h1 { font-size: 1rem; }
+            .top-bar h1 {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -490,7 +560,8 @@
                             <div class="card-icon cyan">📊</div>
                             <div class="lab">Skill Progress Heatmap</div>
                         </div>
-                        <div id="heatmap_container" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 15px;">
+                        <div id="heatmap_container"
+                            style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 15px;">
                         </div>
                         <div class="pill-list" id="heatmap_legend" style="margin-top: 12px;">
                             <span class="pill">Less Active</span>
@@ -498,10 +569,33 @@
                         </div>
                     </div>
 
+                    <!-- AI Mini Projects -->
+                    <div class="card animate animate-delay-1">
+                        <div class="card-header">
+                            <div class="card-icon purple">🚀</div>
+                            <div class="lab">AI-Generated Mini Projects</div>
+                        </div>
+                        <div id="res_mini_projects" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                    </div>
+
+                    <!-- What-If Simulator -->
+                    <div class="card animate animate-delay-1">
+                        <div class="card-header">
+                            <div class="card-icon green">📈</div>
+                            <div class="lab">Future Skill Projection</div>
+                        </div>
+                        <p class="lab">Projected Growth (6 Months)</p>
+                        <div id="res_simulation"
+                            style="margin-top: 10px; display: flex; align-items: flex-end; gap: 4px; height: 60px;">
+                        </div>
+                    </div>
+
                     <!-- ================= Roadmap Timeline ================= -->
                     <div class="card animate animate-delay-1">
-                        <div class="section-title" style="margin-bottom: 16px; margin-top: 0;">Career Roadmap Timeline</div>
-                        <div id="roadmap-timeline" class="card" style="padding: 0; background: transparent; border: none; box-shadow: none;">
+                        <div class="section-title" style="margin-bottom: 16px; margin-top: 0;">Career Roadmap Timeline
+                        </div>
+                        <div id="roadmap-timeline" class="card"
+                            style="padding: 0; background: transparent; border: none; box-shadow: none;">
                             <div id="timeline-content"></div>
                         </div>
                     </div>
@@ -671,10 +765,116 @@
             generateRoadmap(skillLevel, studyHours);
 
             // ================= Fear-of-Failure Analyzer =================
-            if (data.fear_score !== undefined) {
-                document.getElementById("res_fear_score").innerText = data.fear_score + "% Mental Risk";
-                document.getElementById("res_fear_level").innerText = data.fear_level;
-                setList("res_fear_tips", data.fear_tips);
+            if (data.fear_analysis) {
+                document.getElementById("res_fear_score").innerText = data.fear_analysis.score + "% Mental Risk";
+                document.getElementById("res_fear_level").innerText = data.fear_analysis.level;
+                setList("res_fear_tips", data.fear_analysis.tips);
+            }
+
+            // ================= Mini Projects =================
+            const projectsContainer = document.getElementById("res_mini_projects");
+            if (data.mini_projects && projectsContainer) {
+                projectsContainer.innerHTML = "";
+                data.mini_projects.forEach(p => {
+                    const div = document.createElement("div");
+                    div.style.background = "rgba(255, 255, 255, 0.05)";
+                    div.style.padding = "10px";
+                    div.style.borderRadius = "8px";
+                    div.style.borderLeft = p.recommended ? "3px solid var(--accent)" : "3px solid transparent";
+                    div.innerHTML = `
+                        <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-2)">${p.title}</div>
+                        <div style="font-size: 0.75rem; color: #cbd5e1; margin-top: 4px;">${p.description}</div>
+                        <div style="font-size: 0.7rem; color: var(--dim); margin-top: 6px;">${p.difficulty}</div>
+                    `;
+                    projectsContainer.appendChild(div);
+                });
+            }
+
+            // ================= Simulation =================
+            const simContainer = document.getElementById("res_simulation");
+            if (data.simulation && simContainer) {
+                simContainer.innerHTML = "";
+                data.simulation.forEach(m => {
+                    const bar = document.createElement("div");
+                    bar.style.flex = "1";
+                    bar.style.background = "var(--accent)";
+                    bar.style.borderRadius = "4px 4px 0 0";
+                    bar.style.height = (m.projected_skill) + "%"; // Scale directly for simplicity, max 100
+                    bar.style.opacity = 0.5 + (m.month / 12);
+                    bar.title = `Month ${m.month}: ${m.projected_skill} Skill`;
+                    simContainer.appendChild(bar);
+                });
+            }
+
+            // ================= NEW BATCH FEATURES =================
+
+            // Company Map
+            const companyBox = document.getElementById("res_company_map");
+            if (data.company_map && companyBox) {
+                companyBox.innerHTML = "";
+                for (const [company, skills] of Object.entries(data.company_map)) {
+                    companyBox.innerHTML += `<div style="margin-bottom:8px;"><span style="color:var(--accent-2); font-weight:600; font-size:0.8rem;">${company}</span><div class="pill-list">${skills.map(s => `<span class="pill" style="font-size:0.65rem;">${s}</span>`).join('')}</div></div>`;
+                }
+            }
+
+            // Mentor
+            if (data.mentor_data) {
+                document.getElementById("res_mentor_tone").innerText = data.mentor_data.tone;
+                document.getElementById("res_mentor_msg").innerText = `"${data.mentor_data.message}"`;
+            }
+
+            // Personality
+            setList("res_personality_roles", data.personality_fit);
+
+            // Regret
+            if (data.regret_analysis) {
+                document.getElementById("res_regret_advice").innerText = data.regret_analysis.advice;
+            }
+
+            // Interest
+            if (data.interest_trend) {
+                document.getElementById("res_interest_trend").innerText = data.interest_trend.trend;
+                document.getElementById("res_interest_alert").innerText = data.interest_trend.alert;
+            }
+
+            // Peer
+            if (data.peer_comparison) {
+                document.getElementById("res_peer_skill").innerText = `Skill: ${data.peer_comparison.skill_percentile}`;
+                document.getElementById("res_peer_msg").innerText = data.peer_comparison.message;
+            }
+
+            // AGI
+            if (data.agi_advisor) {
+                document.getElementById("res_agi_impact").innerText = `Impact: ${data.agi_advisor.agi_impact}`;
+                document.getElementById("res_agi_advice").innerText = data.agi_advisor.advice;
+            }
+
+            // RL Optimizer
+            const rlSteps = document.getElementById("res_rl_steps");
+            if (data.rl_optimizer && rlSteps) {
+                rlSteps.innerHTML = "";
+                data.rl_optimizer.forEach(step => {
+                    rlSteps.innerHTML += `<li style="font-size:0.8rem; color:#cbd5e1;">${step.action} <span style="color:var(--accent); font-size:0.7rem;">(+${step.reward})</span></li>`;
+                });
+            }
+
+            // Interview
+            if (data.interview_prep) {
+                document.getElementById("res_interview_q").innerText = data.interview_prep.question;
+                setList("res_interview_tips", data.interview_prep.tips);
+            }
+
+            // Offline
+            if (data.offline_mode) {
+                document.getElementById("res_offline_info").innerText = `${data.offline_mode.format} • ${data.offline_mode.content_length}`;
+            }
+
+            // Privacy & Eval
+            if (data.federated_privacy) {
+                document.getElementById("res_privacy_status").innerText = data.federated_privacy.privacy_budget;
+            }
+            if (data.eval_metrics) {
+                document.getElementById("res_fairness_metric").innerText = data.eval_metrics.fairness_metric;
             }
         }
 
@@ -690,12 +890,12 @@
             // Ensure valid numbers
             let skill = parseFloat(skillLevel) || 50;
             let hours = parseFloat(studyHours) || 4;
-            
+
             console.log(`Dashboard: Generating roadmap: skill=${skill}, hours=${hours}`);
-            
+
             let baseMonths = Math.ceil((100 - skill) / (hours * 2));
             baseMonths = Math.max(3, Math.min(baseMonths, 12));
-            
+
             console.log(`Dashboard: Calculated baseMonths: ${baseMonths}`);
 
             const steps = [
@@ -718,7 +918,7 @@
 
                 container.appendChild(stepDiv);
             }
-            
+
             console.log(`Dashboard: Roadmap generated with ${baseMonths} months`);
         }
 
