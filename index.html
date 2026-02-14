@@ -334,9 +334,17 @@
             background: rgba(148, 163, 184, 0.3);
         }
 
-        .hero-card-dot span:first-child { background: #ef4444; }
-        .hero-card-dot span:nth-child(2) { background: #f59e0b; }
-        .hero-card-dot span:last-child { background: #22c55e; }
+        .hero-card-dot span:first-child {
+            background: #ef4444;
+        }
+
+        .hero-card-dot span:nth-child(2) {
+            background: #f59e0b;
+        }
+
+        .hero-card-dot span:last-child {
+            background: #22c55e;
+        }
 
         .metric {
             display: flex;
@@ -547,10 +555,25 @@
             margin-bottom: 16px;
         }
 
-        .feature-icon.cyan { background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.2); }
-        .feature-icon.orange { background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.2); }
-        .feature-icon.purple { background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); }
-        .feature-icon.green { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .feature-icon.cyan {
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .feature-icon.orange {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .feature-icon.purple {
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+        }
+
+        .feature-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
 
         .feature-card h3 {
             margin: 0 0 8px;
@@ -675,18 +698,39 @@
 
         /* ── Animations ── */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-12px) scale(1.05); }
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-12px) scale(1.05);
+            }
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         .reveal {
@@ -807,7 +851,8 @@
                 <span class="chip">Multi-Language</span>
                 <a class="nav-cta" href="tier1.html">Launch Suite <span class="cta-arrow">&rarr;</span></a>
             </div>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-actions').classList.toggle('show')" aria-label="Menu">&#9776;</button>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-actions').classList.toggle('show')"
+                aria-label="Menu">&#9776;</button>
         </div>
     </nav>
 
@@ -824,7 +869,7 @@
                 <p>Personalized career insights, readiness scores, and guided action plans designed for students,
                     educators, and community teams. Move from uncertainty to clarity in minutes.</p>
                 <div class="cta-group">
-                    <a class="cta" href="tier1.html">Launch Tier 1 Suite <span class="cta-arrow">&rarr;</span></a>
+                    <a class="cta" href="tier1.html">Launch Intelligence Suite <span class="cta-arrow">&rarr;</span></a>
                     <a class="cta secondary" href="#features">Explore Features</a>
                 </div>
             </div>
@@ -886,28 +931,33 @@
         <div class="section-header reveal">
             <div class="section-label">&#9670; Platform Capabilities</div>
             <h2>Everything you need for career clarity</h2>
-            <p>A comprehensive AI suite that adapts to your context, language, and goals with actionable intelligence.</p>
+            <p>A comprehensive AI suite that adapts to your context, language, and goals with actionable intelligence.
+            </p>
         </div>
         <div class="features-grid">
             <div class="feature-card reveal">
                 <div class="feature-icon cyan">&#9881;</div>
-                <h3>Tier 1 Intelligence Suite</h3>
-                <p>State insights, exam eligibility, resume strength, internship readiness, freelancing paths, and impact dashboards in one place.</p>
+                <h3>Intelligence Suite</h3>
+                <p>State insights, exam eligibility, resume strength, internship readiness, freelancing paths, and
+                    impact dashboards in one place.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="feature-icon orange">&#127908;</div>
                 <h3>Local Language Voice</h3>
-                <p>Voice guidance adapts to your language so you can act faster and with complete clarity in your native tongue.</p>
+                <p>Voice guidance adapts to your language so you can act faster and with complete clarity in your native
+                    tongue.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="feature-icon purple">&#128101;</div>
                 <h3>Educator & Parent Views</h3>
-                <p>Dedicated summaries for mentors, teachers, and families with clear next-step actions and progress tracking.</p>
+                <p>Dedicated summaries for mentors, teachers, and families with clear next-step actions and progress
+                    tracking.</p>
             </div>
             <div class="feature-card reveal">
                 <div class="feature-icon green">&#127758;</div>
                 <h3>Community Deployment</h3>
-                <p>Plans tailored for rural, semi-urban, and urban rollouts with impact metrics and offline-first support.</p>
+                <p>Plans tailored for rural, semi-urban, and urban rollouts with impact metrics and offline-first
+                    support.</p>
             </div>
         </div>
     </section>
